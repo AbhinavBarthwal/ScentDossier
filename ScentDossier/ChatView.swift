@@ -56,7 +56,8 @@ struct ChatView: View {
                 .onTapGesture {
                     isInputFocused = false
                 }
-                .onChange(of: viewModel.messages.count) { _ in
+                .onChange(of: viewModel.messages.count) { oldValue, newValue in
+                    guard oldValue != newValue else { return }
                     withAnimation(.easeOut(duration: 0.3)) {
                         if viewModel.isLoading {
                             proxy.scrollTo("typing", anchor: .bottom)
@@ -351,3 +352,4 @@ struct ApiKeySheet: View {
         .presentationDetents([.medium, .large])
     }
 }
+

@@ -289,7 +289,7 @@ enum ChaldeanNumerology {
     
     /// Trait description and scent-family leaning for each number
     static func trait(for number: Int) -> NumerologyTrait {
-        let isMaster = number == 11 || number == 22
+        _ = number == 11 || number == 22
         switch number {
         case 1:
             return NumerologyTrait(number: 1, isMaster: false, description: "Independent, pioneering, charismatic", scentFamily: "woody", signatureNotes: ["Cedar", "Vetiver", "Sandalwood"])
